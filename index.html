@@ -26,17 +26,17 @@
 	</header>
 
 	<main>
-		<form action="#">
+		<form name="form" id="form" method="POST" action="#" enctype="multipart/form-data">
 			<fieldset class="form__fieldset">
 				<legend>Питомец</legend>
 				<div class="form__item">
-					<label for="name">Имя котика</label>
+					<label for="catname">Имя котика</label>
 					<input type="text" name="catname" id="catname" pattern="([a-zA-zа-яёА-ЯЁ]*\s?)*" title="Имя должно содержать только буквы и пробелы" required>
 				</div>
 				<div class="form__item">
 					<label for="breed">Порода</label>
 					<select name="breed" id="breed">
-						<option value="choose">-Выберите-</option>
+						<option value="">-Выберите-</option>
 						<option value="british">Британская</option>
 						<option value="persian">Персидская</option>
 						<option value="russian">Русская</option>
@@ -50,11 +50,11 @@
 				<legend>Владелец</legend>
 				<div class="form__item">
 					<label for="ownername">Имя</label>
-					<input type="text" name="name" id="name" pattern="([А-ЯЁа-яёA-Za-z]*([-][А-ЯЁа-яёA-Za-z]*)?\s?)*" title="Имя должно содержать только буквы и пробелы" required>
+					<input type="text" name="ownername" id="ownername" pattern="([А-ЯЁа-яёA-Za-z]*([-][А-ЯЁа-яёA-Za-z]*)?\s?)*" title="Имя должно содержать только буквы и пробелы" required>
 				</div>
 				<div class="form__item">
-					<label for="owneraddress">Адрес</label>
-					<input type="text" name="owneraddress" id="owneraddress">
+					<label for="address">Адрес</label>
+					<input type="text" name="address" id="address">
 				</div>
 				<div class="form__item">
 					<label for="phone">Телефон</label>
@@ -73,21 +73,20 @@
 					<input class="form__food" type="checkbox" name="naturalfood" id="naturalfood"><span class="form__food-name">Натуральная еда</span>
 				</div>
 			</fieldset>
-			<fieldset class="form__fieldset form__fieldset-choise">
+			<fieldset class="form__fieldset form__fieldset-choise" name="radio--gender">
 				<legend>Пол питомца</legend>
 				<div>
-					<input type="radio" name="gender" id="female" checked>
+					<input type="radio" name="gender" id="female" value="female" checked>
 					<label for="female">Кошечка</label>
 				</div>
 				<div>
-					<input type="radio" name="gender" id="male">
+					<input type="radio" name="gender" id="male" value="male">
 					<label for="male">Котик</label>
 				</div>
 			</fieldset>
 			<div class="form__item  form__comment">
 				<label for="comment">Ваш комментарий:</label>
-				<textarea name="comment" id="comment" rows="10" cols="30">
-				</textarea>
+				<textarea name="comment" id="comment" rows="10" cols="30"></textarea>
 			</div>
 			<div class="form__item form__photo">
 				<label for="photo">Фото котика</label>
@@ -95,9 +94,9 @@
 					<input type="file" name="photo" id="photo">
 				</div>
 			</div>
-			<div class="form__submit-button">
-				<input type="reset" value="Сбросить">
-				<input type="submit" value="Сохранить">
+			<div class="form__submit-button button">
+				<input class="button__reset" name="reset" type="reset" value="Сбросить">
+				<input class="button__submit" name="submit" type="submit" value="Сохранить">
 				<!-- <input type="button" value="Сохранить"> -->
 			</div>
 		</form>
