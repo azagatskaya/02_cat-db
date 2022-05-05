@@ -5,108 +5,110 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="favicon.png" type="image/png">
 	<title>Catbook</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/nullstyle.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-	<header>
-		<div class="header__item"><img class="header__logo" src="img/785.jpg" alt="cats"></div>
-		<div class="header__item">
-			<div class="header__h1">
-				<h1>Catbook</h1>
+	<div class="container">
+		<header class="header">
+			<div class="header__item">
+				<img class="header__logo" src="./img/785.jpg" alt="cats">
 			</div>
-			<nav>
-				<div class="nav__item"><a href="#">Регистрация/Вход</a></div>
-				<div class="nav__item"><a href="#">Статьи</a></div>
-				<div class="nav__item"><a href="#">Встречи</a></div>
-			</nav>
-		</div>
-	</header>
-
-	<main>
-		<form name="form" id="form" method="POST" action="#" enctype="multipart/form-data">
-			<fieldset class="form__fieldset">
-				<legend>Питомец</legend>
-				<div class="form__item">
-					<label for="catname">Имя котика</label>
-					<input type="text" name="catname" id="catname" pattern="([a-zA-zа-яёА-ЯЁ]*\s?)*" title="Имя должно содержать только буквы и пробелы" required>
+			<div class="header__item">
+				<div class="header__h1">
+					<h1 class="header__title">Catbook</h1>
 				</div>
-				<div class="form__item">
-					<label for="breed">Порода</label>
-					<select name="breed" id="breed">
-						<option value="">-Выберите-</option>
-						<option value="british">Британская</option>
-						<option value="persian">Персидская</option>
-						<option value="russian">Русская</option>
-						<option value="siamese">Сиамская</option>
-						<option value="sphinx">Сфинкс</option>
-					</select>
-				</div>
-			</fieldset>
-
-			<fieldset class="form__fieldset">
-				<legend>Владелец</legend>
-				<div class="form__item">
-					<label for="ownername">Имя</label>
-					<input type="text" name="ownername" id="ownername" pattern="([А-ЯЁа-яёA-Za-z]*([-][А-ЯЁа-яёA-Za-z]*)?\s?)*" title="Имя должно содержать только буквы и пробелы" required>
-				</div>
-				<div class="form__item">
-					<label for="address">Адрес</label>
-					<input type="text" name="address" id="address">
-				</div>
-				<div class="form__item">
-					<label for="phone">Телефон</label>
-					<input type="tel" name="phone" id="phone" pattern="[0-9]*" title="Пожалуйста, введите только цифры" required>
-				</div>
-			</fieldset>
-			<fieldset class="form__fieldset form__fieldset-choise">
-				<legend>Чем питается</legend>
-				<div>
-					<input class="form__food" type="checkbox" name="wetfood" id="wetfood" checked="checked"><span class="form__food-name">Влажный корм</span>
-				</div>
-				<div>
-					<input class="form__food" type="checkbox" name="dryfood" id="dryfood"><span class="form__food-name">Сухой корм</span>
-				</div>
-				<div>
-					<input class="form__food" type="checkbox" name="naturalfood" id="naturalfood"><span class="form__food-name">Натуральная еда</span>
-				</div>
-			</fieldset>
-			<fieldset class="form__fieldset form__fieldset-choise" name="radio--gender">
-				<legend>Пол питомца</legend>
-				<div>
-					<input type="radio" name="gender" id="female" value="female" checked>
-					<label for="female">Кошечка</label>
-				</div>
-				<div>
-					<input type="radio" name="gender" id="male" value="male">
-					<label for="male">Котик</label>
-				</div>
-			</fieldset>
-			<div class="form__item  form__comment">
-				<label for="comment">Ваш комментарий:</label>
-				<textarea name="comment" id="comment" rows="10" cols="30"></textarea>
+				<!-- <nav>
+					<div class="nav__item"><a href="#">Регистрация/Вход</a></div>
+					<div class="nav__item"><a href="#">Статьи</a></div>
+					<div class="nav__item"><a href="#">Встречи</a></div>
+				</nav> -->
 			</div>
-			<div class="form__item form__photo">
-				<label for="photo">Фото котика</label>
-				<div>
+		</header>
+		<main>
+			<form class="main__form" name="form" id="form" enctype="multipart/form-data">
+				<fieldset class="form__fieldset">
+					<legend>Питомец</legend>
+					<div class="form__item">
+						<label for="catname">Имя котика</label>
+						<input type="text" name="catname" id="catname" pattern="([a-zA-zа-яёА-ЯЁ]*\s?)*" title="Имя должно содержать только буквы и пробелы" required>
+					</div>
+					<div class="form__item input--breed">
+						<label for="breed">Порода</label>
+						<select class="input--breed" name="breed" id="breed">
+							<option value="">-Выберите-</option>
+							<option value="british">Британская</option>
+							<option value="persian">Персидская</option>
+							<option value="russian">Русская</option>
+							<option value="siamese">Сиамская</option>
+							<option value="sphinx">Сфинкс</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset class="form__fieldset">
+					<legend>Владелец</legend>
+					<div class="form__item">
+						<label for="ownername">Имя</label>
+						<input type="text" name="ownername" id="ownername" pattern="([А-ЯЁа-яёA-Za-z]*([-][А-ЯЁа-яёA-Za-z]*)?\s?)*" title="Имя должно содержать только буквы и пробелы" required>
+					</div>
+					<div class="form__item">
+						<label for="address">Адрес</label>
+						<input type="text" name="address" id="address">
+					</div>
+					<div class="form__item">
+						<label for="phone">Телефон</label>
+						<input type="tel" name="phone" id="phone" pattern="[+0-9]*" title="Пожалуйста, введите только цифры" required>
+					</div>
+				</fieldset>
+				<fieldset class="form__fieldset form__fieldset-choise">
+					<legend>Чем питается</legend>
+					<div>
+						<input class="form__food" type="checkbox" name="wetfood" id="wetfood" checked="checked"><span class="form__food-name">Влажный корм</span>
+					</div>
+					<div>
+						<input class="form__food" type="checkbox" name="dryfood" id="dryfood"><span class="form__food-name">Сухой корм</span>
+					</div>
+					<div>
+						<input class="form__food" type="checkbox" name="naturalfood" id="naturalfood"><span class="form__food-name">Натуральная еда</span>
+					</div>
+				</fieldset>
+				<fieldset class="form__fieldset form__fieldset-choise" name="radio--gender">
+					<legend>Пол питомца</legend>
+					<div>
+						<input type="radio" name="gender" id="female" value="female" checked>
+						<span for="female">Кошечка</span>
+					</div>
+					<div>
+						<input type="radio" name="gender" id="male" value="male">
+						<span for="male">Котик</span>
+					</div>
+				</fieldset>
+				<div class="form__item form__comment">
+					<label for="comment">Ваш комментарий:</label>
+					<textarea name="comment" id="comment" rows="10" cols="20"></textarea>
+				</div>
+				<div class="form__item form__photo">
+					<label for="photo">Фото котика</label>
 					<input type="file" name="photo" id="photo">
 				</div>
-			</div>
-			<div class="form__submit-button button">
-				<input class="button__reset" name="reset" type="reset" value="Сбросить">
-				<input class="button__submit" name="submit" type="submit" value="Сохранить">
-				<!-- <input type="button" value="Сохранить"> -->
-			</div>
-		</form>
-	</main>
-
-	<footer>
-		<address>
-			<p>г.Москва, ул.Русаковская, д.13, оф.204</p>
-		</address>
-	</footer>
+				<div class="form__submit-button button">
+					<input class="button__reset" name="reset" type="reset" value="Сбросить">
+					<input class="button__submit" name="submit" type="submit" value="Сохранить">
+				</div>
+			</form>
+		</main>
+		<footer class="footer">
+			<address class="address">
+				<p>г.Москва, ул.Русаковская, д.13, оф.204</p>
+			</address>
+		</footer>
+	</div>
 
 	<script src="./js/script.js"></script>
 </body>
