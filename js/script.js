@@ -32,7 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	gender.forEach(el => {
 		el.addEventListener('change', handleRadioChange);
 	});
-
+	food.forEach(el => {
+		el.addEventListener('change', handleFoodChange);
+	});
 	document.querySelector('.button__submit').addEventListener('click', handleSubmitClick);
 
 	function handleSubmitClick(e) {
@@ -65,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				el.checked = false;
 			}
 		});
+	}
+
+	function handleFoodChange(event) {
+		(event.target.checked) ? event.target.checked = false: event.target.checked = true;
 	}
 
 	function checkRequiredFields() {
@@ -106,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function getFood() {
-		console.log('getFood()');
+		const selectedFood = document.querySelectorAll('input[name="food"]:checked');
+		let selectedFoodValues = [...selectedFood].map(food => food.value);
+		return selectedFoodValues;
 	}
 
 	function getGender() {
@@ -121,6 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	function removeClassInvalid(element) {
 		element.classList.remove('invalid');
 	}
+
+	//TODO
+	// handleResetClick
+	
 
 	// let formElement = document.querySelector('#form')
 	// let fd = new FormData(formElement)

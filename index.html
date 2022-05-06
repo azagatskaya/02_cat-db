@@ -9,7 +9,7 @@
 	<title>Catbook</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="./css/nullstyle.css">
 	<link rel="stylesheet" href="./css/style.css">
 </head>
@@ -66,29 +66,31 @@
 						<input type="tel" name="phone" id="phone" pattern="[+0-9]*" title="Пожалуйста, введите только цифры" required>
 					</div>
 				</fieldset>
-				<fieldset class="form__fieldset form__fieldset-choise">
-					<legend>Чем питается</legend>
-					<div>
-						<input class="form__food" type="checkbox" name="wetfood" id="wetfood" checked="checked"><span class="form__food-name">Влажный корм</span>
-					</div>
-					<div>
-						<input class="form__food" type="checkbox" name="dryfood" id="dryfood"><span class="form__food-name">Сухой корм</span>
-					</div>
-					<div>
-						<input class="form__food" type="checkbox" name="naturalfood" id="naturalfood"><span class="form__food-name">Натуральная еда</span>
-					</div>
-				</fieldset>
-				<fieldset class="form__fieldset form__fieldset-choise" name="radio--gender">
-					<legend>Пол питомца</legend>
-					<div>
-						<input type="radio" name="gender" id="female" value="female" checked>
-						<span for="female">Кошечка</span>
-					</div>
-					<div>
-						<input type="radio" name="gender" id="male" value="male">
-						<span for="male">Котик</span>
-					</div>
-				</fieldset>
+				<div class="form__fieldset-wrapper">
+					<fieldset class="form__fieldset form__fieldset-choise">
+						<legend>Чем питается</legend>
+						<div>
+							<input class="form__food" type="checkbox" name="food" value="dryfood" id="dryfood" checked="checked"><span class="form__food-name">Сухой корм</span>
+						</div>
+						<div>
+							<input class="form__food" type="checkbox" name="food" value="wetfood" id="wetfood"><span class="form__food-name">Влажный корм</span>
+						</div>
+						<div>
+							<input class="form__food" type="checkbox" name="food" value="naturalfood" id="naturalfood"><span class="form__food-name">Натуральная еда</span>
+						</div>
+					</fieldset>
+					<fieldset class="form__fieldset form__fieldset-choise" name="radio--gender">
+						<legend>Пол питомца</legend>
+						<div>
+							<input type="radio" name="gender" id="female" value="female" checked>
+							<span for="female">Кошечка</span>
+						</div>
+						<div>
+							<input type="radio" name="gender" id="male" value="male">
+							<span for="male">Котик</span>
+						</div>
+					</fieldset>
+				</div>
 				<div class="form__item form__comment">
 					<label for="comment">Ваш комментарий:</label>
 					<textarea name="comment" id="comment" rows="10" cols="20"></textarea>
