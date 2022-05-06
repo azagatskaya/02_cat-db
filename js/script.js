@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	//TODO
 	// handleResetClick
-	
+	// changes for code-review
 
 	// let formElement = document.querySelector('#form')
 	// let fd = new FormData(formElement)
