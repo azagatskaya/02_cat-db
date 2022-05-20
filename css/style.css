@@ -150,7 +150,8 @@ main {
 	justify-content: space-evenly;
 }
 
-.form__submit-button button {
+.button__reset,
+.button__submit {
 	width: 130px;
 	height: 30px;
 	line-height: 1.3;
@@ -160,7 +161,8 @@ main {
 	font-size: 16px;
 }
 
-.form__submit-button button:hover {
+.button__reset:hover,
+.button__submit:hover {
 	background-color: #8f8fe2;
 }
 
@@ -183,4 +185,9 @@ main {
 
 .checked {
 	background-color: green;
+}
+
+.radio__gender:hover,
+.form__food:hover {
+	cursor: pointer;
 }
