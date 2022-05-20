@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const ownerName = document.querySelector('#ownername');
 	const address = document.querySelector('#address');
 	const phone = document.querySelector('#phone');
-	const food = document.querySelectorAll('input[name="gender"]');
+	const food = document.querySelectorAll('.form__food');
 	const gender = document.querySelectorAll('input[name="gender"]');
 	const comment = document.querySelector('#comment');
 	document.querySelector('.button__submit').addEventListener('click', handleSubmitClick);
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		el.addEventListener('change', handleRadioChange);
 	});
 	food.forEach(el => {
-		el.addEventListener('change', handleFoodChange);
+		el.addEventListener('click', handleFoodChange);
 	});
 	phone.addEventListener('input', handlePhoneInput);
 
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		let phoneValue = phone.value;
 		if (checkRequiredFields()) {
 			let cat = new Cat(catNameValue, breedValue, ownerNameValue, addressValue, phoneValue, getFood(), getGender());
-			console.log(cat);
 			alert('Info is stored in localStorage');
 		}
 	}
@@ -78,7 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function handleFoodChange(event) {
-		(event.target.checked) ? event.target.checked = false: event.target.checked = true;
+		if (event.target.checked === true) {
+			event.target.classList.add('checked');
+		} else {
+			event.target.classList.remove('checked');
+		}
 	}
 
 	function checkRequiredFields() {
@@ -134,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		element.classList.remove('invalid');
 	}
 
-	function handleResetClick() {
+	function handleResetClick(e) {
 		e.preventDefault();
 		elements.forEach(el => el.value = '');
 	}
