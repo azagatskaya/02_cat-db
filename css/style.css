@@ -190,4 +190,6 @@ main {
 .radio__gender:hover,
 .form__food:hover {
 	cursor: pointer;
+	cursor: -moz-pointer;
+	/* cursor: pointer; */
 }
