@@ -20,9 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	const ownerName = document.querySelector('#ownername');
 	const address = document.querySelector('#address');
 	const phone = document.querySelector('#phone');
-	const food = document.querySelectorAll('input[name="gender"]');
+	const food = document.querySelectorAll('.form__food');
 	const gender = document.querySelectorAll('input[name="gender"]');
 	const comment = document.querySelector('#comment');
+	document.querySelector('.button__submit').addEventListener('click', handleSubmitClick);
+	document.querySelector('.button__reset').addEventListener('click', handleResetClick);
 
 	const elements = [catName, breed, ownerName, address, phone, comment];
 	elements.forEach(el => {
@@ -33,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		el.addEventListener('change', handleRadioChange);
 	});
 	food.forEach(el => {
-		el.addEventListener('change', handleFoodChange);
+		el.addEventListener('click', handleFoodChange);
 	});
-	document.querySelector('.button__submit').addEventListener('click', handleSubmitClick);
+	phone.addEventListener('input', handlePhoneInput);
 
 	function handleSubmitClick(e) {
 		e.preventDefault();
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let phoneValue = phone.value;
 		if (checkRequiredFields()) {
 			let cat = new Cat(catNameValue, breedValue, ownerNameValue, addressValue, phoneValue, getFood(), getGender());
-			console.log(cat);
+			alert('Info is stored in localStorage');
 		}
 	}
 
@@ -69,8 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+	function handlePhoneInput(e) {
+		const clearedValue = e.target.value.replace(/[^0-9]/ig, '');
+		e.target.value = clearedValue;
+	}
+
 	function handleFoodChange(event) {
-		(event.target.checked) ? event.target.checked = false: event.target.checked = true;
+		if (event.target.checked === true) {
+			event.target.classList.add('checked');
+		} else {
+			event.target.classList.remove('checked');
+		}
 	}
 
 	function checkRequiredFields() {
@@ -83,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		let res = true;
 		fields.forEach(field => {
 			if (!field[0]) {
-				console.log(field);
 				addClassInvalid(field[1]);
 				res = false;
 			}
@@ -92,16 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function isItemInLs(element) {
-		return (localStorage.getItem(element.id));
+		return (!!localStorage.getItem(element.id));
 	}
 
 	function setItemToLs(element) {
 		localStorage.setItem(element.id, element.value);
-		console.log('Setted ' + element.value + ' to ' + element.id);
 	}
 
 	function getItemFromLs(element) {
-		console.log('getItem: ' + localStorage.getItem(element.id));
 		return localStorage.getItem(element.id);
 	}
 
@@ -123,16 +131,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	function addClassInvalid(selector) {
 		document.querySelector(selector).classList.add('invalid');
-		console.log('class Inv added to ' + selector);
 	}
 
 	function removeClassInvalid(element) {
 		element.classList.remove('invalid');
 	}
 
+	function handleResetClick(e) {
+		e.preventDefault();
+		elements.forEach(el => el.value = '');
+	}
 	//TODO
-	// handleResetClick
-	
+	// changes for code-review
 
 	// let formElement = document.querySelector('#form')
 	// let fd = new FormData(formElement)
