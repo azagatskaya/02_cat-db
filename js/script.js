@@ -15,6 +15,7 @@ class Cat {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	const cats = [];
 	const catName = document.querySelector('#catname');
 	const breed = document.querySelector('#breed');
 	const ownerName = document.querySelector('#ownername');
@@ -48,8 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		let phoneValue = phone.value;
 		if (checkRequiredFields()) {
 			let cat = new Cat(catNameValue, breedValue, ownerNameValue, addressValue, phoneValue, getFood(), getGender());
-			alert('Info is stored in localStorage');
+			cats.push(cat);
+			console.log(cats);
+			sendToBackend(cat);
+			// alert('Info is stored in localStorage');
 		}
+	}
+
+	function sendToBackend(obj) {
+		fetch('https://httpbin.org/post', {
+				method: 'POST',
+				body: JSON.stringify(obj),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			})
+			.then(response => response.json())
+			.then(cat => {
+				console.log(cat);
+			})
+			.catch(error => console.log(error));
 	}
 
 	function handleFocusOut(event) {
