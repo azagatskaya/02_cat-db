@@ -1,8 +1,4 @@
 body {
-	/* display: flex;
-	flex-flow: column;
-	align-items: center; */
-	/* padding: 30px; */
 	font-family: 'Open Sans', sans-serif;
 	;
 	font-size: 14px;
@@ -92,7 +88,6 @@ main {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 12px;
-	/* border: 1px solid #9999ccab; */
 	box-shadow: 1px 1px 2px #9999ccab, -1px -1px 2px #9999ccab;
 	padding: 38px 12px 12px 12px;
 }
@@ -126,7 +121,6 @@ main {
 	font-size: 15px;
 	font-weight: 500;
 	color: #7878c2;
-	/* font-style: italic; */
 
 }
 
@@ -166,9 +160,6 @@ main {
 	background-color: #8f8fe2;
 }
 
-/* input:required:valid{
-	background-color: rgba(182, 240, 255, 0.3);
-} */
 .invalid {
 	background-color: rgba(255, 182, 215, 0.805);
 }
@@ -191,5 +182,4 @@ main {
 .form__food:hover {
 	cursor: pointer;
 	cursor: -moz-pointer;
-	/* cursor: pointer; */
 }

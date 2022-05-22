@@ -1,5 +1,6 @@
 'use strict';
 
+const cats = [];
 class Cat {
 	constructor(catName, breed, ownerName, address, phone, food, gender, comment, photo) {
 		this.catName = catName;
@@ -48,8 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
 		let phoneValue = phone.value;
 		if (checkRequiredFields()) {
 			let cat = new Cat(catNameValue, breedValue, ownerNameValue, addressValue, phoneValue, getFood(), getGender());
-			alert('Info is stored in localStorage');
+			cats.push(cat);
+			console.log(cats);
+			sendToBackend(cat);
 		}
+	}
+
+	function sendToBackend(obj) {
+		fetch('https://httpbin.org/post', {
+				method: 'POST',
+				body: JSON.stringify(obj),
+				headers: {
+					'Content-Type': 'application/json; charset=utf-8'
+				}
+			})
+			.then(response => response.json())
+			.then(cat => {
+				console.log(cat);
+			})
+			.catch(error => console.log(error));
 	}
 
 	function handleFocusOut(event) {
