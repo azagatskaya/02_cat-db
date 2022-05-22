@@ -1,5 +1,6 @@
 'use strict';
 
+const cats = [];
 class Cat {
 	constructor(catName, breed, ownerName, address, phone, food, gender, comment, photo) {
 		this.catName = catName;
@@ -15,7 +16,6 @@ class Cat {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	const cats = [];
 	const catName = document.querySelector('#catname');
 	const breed = document.querySelector('#breed');
 	const ownerName = document.querySelector('#ownername');
@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			cats.push(cat);
 			console.log(cats);
 			sendToBackend(cat);
-			// alert('Info is stored in localStorage');
 		}
 	}
 
